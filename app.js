@@ -9,7 +9,7 @@ const cookieparser = require("cookie-parser");
 const session = require("express-session");
 var Chatdata=require("./models/Chatdata.js");
 var Group=require("./models/Group.js");
-var User=require("./models/user.js");
+var User=require("./models/User.js");
 var app=express();
 var path=require("path");
 
