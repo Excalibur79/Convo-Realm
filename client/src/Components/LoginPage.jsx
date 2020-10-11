@@ -29,7 +29,7 @@ function LoginPage(props)
                 method: "POST",
                 data:data ,
                 withCredentials: true,
-                url: "http://localhost:5000/login",
+                url: `${baseUrl}/login`,
               }).then((res) =>
                {
                    console.log(res.data);

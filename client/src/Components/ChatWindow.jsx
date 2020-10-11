@@ -9,7 +9,7 @@ import "../styles/ChatWindow.scss";
 
 import io from "socket.io-client";
 let socket;
-const ENDPOINT=`localhost:5000`;
+const ENDPOINT=`https://convo-realm.herokuapp.com`;
 socket=io(ENDPOINT);
 
 
