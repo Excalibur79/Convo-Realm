@@ -60,7 +60,7 @@ function LoginPage(props)
         axios({
             method:"GET",
             withCredentials:true,
-            url:"http://localhost:5000/getuser",
+            url:`${baseUrl}/getuser`,
         }).then((res)=>
         {
             console.log(res.data);
