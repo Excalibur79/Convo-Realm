@@ -62,6 +62,11 @@ passport.deserializeUser(User.deserializeUser());
 
 //--------------------------Here Goes The Routes ----------------------------------------------
 
+app.get("/",(req,res)=>
+{   
+    res.send("Hello");
+})
+
 app.post("/register",function(req,res)//Register
 {
         User.register(new User({username:req.body.username,avatar:req.body.avatar,groups:req.body.groups}),req.body.password,function(err,user)
@@ -207,7 +212,7 @@ app.post("/joinGroup",async (req,res)=>
 });
 
 
-const PORT = 5000 || process.env.PORT;
+const PORT =  process.env.PORT || 5000;
 
 
 
