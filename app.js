@@ -62,10 +62,10 @@ passport.deserializeUser(User.deserializeUser());
 
 //--------------------------Here Goes The Routes ----------------------------------------------
 
-app.get("/",(req,res)=>
-{   
-    res.send("Hello");
-})
+
+
+
+
 
 app.post("/register",function(req,res)//Register
 {
@@ -214,7 +214,14 @@ app.post("/joinGroup",async (req,res)=>
 
 const PORT =  process.env.PORT || 5000;
 
-
+if(process.env.NODE_ENV==="production")
+{
+    app.use(express.static("client/build"));
+    app.get("*",function(req,res)
+    {
+        res.sendFile(path.resolve(__dirname,"client","build","index.html"));
+    });
+}
 
 
 
@@ -310,14 +317,6 @@ io.on("connection",(socket)=>
 });
 
 //Client Render=--------
-if(process.env.NODE_ENV==="production")
-{
-    app.use(express.static("client/build"));
-    app.get("*",function(req,res)
-    {
-        res.sendFile(path.resolve(__dirname,"client","build","index.html"));
-    });
-}
 
 
 //-----------------------
