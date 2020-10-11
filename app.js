@@ -209,18 +209,7 @@ app.post("/joinGroup",async (req,res)=>
 
 const PORT = 5000 || process.env.PORT;
 
-//Client Render=--------
-if(process.env.NODE_ENV==="production")
-{
-    app.use(express.static("client/build"));
-    app.get("*",function(req,res)
-    {
-        res.sendFile(path.resolve(__dirname,"client","build","index.html"));
-    });
-}
 
-
-//-----------------------
 
 
 
@@ -312,7 +301,22 @@ io.on("connection",(socket)=>
         
 
     })
+
 });
+
+//Client Render=--------
+if(process.env.NODE_ENV==="production")
+{
+    app.use(express.static("client/build"));
+    app.get("*",function(req,res)
+    {
+        res.sendFile(path.resolve(__dirname,"client","build","index.html"));
+    });
+}
+
+
+//-----------------------
+
 
 
 
