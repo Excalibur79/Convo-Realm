@@ -1,5 +1,5 @@
 {
-  "name": "Convo_Realm",
+  "name": "convo_realm",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,12 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "client": "cd client && npm start",
+    "dev":"concurrently \"npm run start\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Ankur Saha",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
