@@ -28,7 +28,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(
     cors({
-      origin: "https://convo-realm.herokuapp.com/", // <-- location of the react app were connecting to
+      origin: "https://convo-realm.herokuapp.com", // <-- location of the react app were connecting to
       credentials: true,
     })
   );
