@@ -1,0 +1,86 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+.Message
+{
+    //border:2px solid blue;
+    padding:.2rem;
+    margin:.5rem;
+    &::after 
+    {
+        content:"";
+        display:table;
+        clear:both;
+
+    }
+    .Float-Right
+    {
+       // border:2px solid brown;   
+        float:right;     
+    }
+    .Float-Left
+    {
+        //border:2px solid orange;
+        float:left;
+        display:flex;
+        padding:.2rem;
+        
+    }
+    .Image-div
+    {
+  //border:1px dotted purple;
+        width:4rem;
+        height:4rem;
+        img 
+        {
+            //border:1px solid red;
+            
+            width:3.5rem;
+            height:3.5rem;
+        }
+    }
+    .Message-Content 
+    {
+        //border:1px solid red;
+        background-color: $color-secondary;
+       padding-top:.5rem;
+       padding-bottom:.5rem;
+       padding-left:1.4rem;
+       padding-right:1.4rem;
+        border-radius:10px;
+       
+        .Name
+        {
+            //border:1px solid black;
+            color:black;
+        }
+        .Text
+        {
+           // border:2px solid black;
+           color:#8B4513;
+        }
+    }
+
+    .My-Message-Content 
+    {
+        //border:1px solid red;
+        background-color:#808080	;
+       padding-top:.5rem;
+       padding-bottom:.5rem;
+       padding-left:1.4rem;
+       padding-right:1.4rem;
+        border-radius:10px;
+       
+        .Name
+        {
+            //border:1px solid black;
+            color:gold;
+        }
+        .Text
+        {
+           // border:2px solid black;
+           color:white;
+        }
+    }
+}

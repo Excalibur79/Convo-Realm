@@ -1,0 +1,170 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+
+.InfoBar
+{
+    background-color:$color-tertiary;
+   
+    color:white;
+    font-family: 'Poppins', sans-serif;
+   
+&__Group-div
+{
+   
+  //border:2px solid green;
+  position:relative;
+  &::after
+  {
+      content:"";
+      display:table;
+      clear:both;
+  }
+
+    .InfoBar__Image-Container
+    {
+        //border:2px solid black;
+        margin:0.6rem;
+        margin-left:2rem;
+        margin-right:0rem;
+        padding:0.2rem;
+        float:left;
+        .InfoBar__Image
+        {
+            width:4.5rem;
+            height:4.5rem;
+          // border:2px dotted blue;
+            background-color:black;
+            border-radius:50%;
+            margin:0 auto;
+            text-align:center;
+            padding-top:0.6rem;
+            font-size:2rem;
+            color:gold;
+            
+        }
+    }
+    .InfoBar__Group-name
+    {
+        //border:2px solid blue;
+        float:left;
+       
+        margin:0.6rem;
+        margin-left:2rem;
+        margin-top:1rem;
+        font-size:2rem;
+        padding:0.2rem;
+    }
+    .InfoBar__Notifications
+    {
+        //border:2px solid blue;
+        float:right;
+       
+        margin:0.6rem;
+       margin-right:1rem;
+        margin-top:1rem;
+        font-size:2rem;
+        cursor:pointer;
+        padding:0.2rem;
+        img 
+        {
+            width:3.5rem;
+            height:3.5rem;
+            transition:all .3s ease;
+            &:hover{
+                transform:scale(1.2);
+                
+            }
+            &:active{
+                transform:scale(.9);
+            }
+        }
+    }
+    .Notifications-div
+    {
+       
+        position:absolute;
+        height:45vh;
+        //border:2px solid red;
+        border-radius:5px;
+        padding:1rem;
+        
+        background-color:rgba($color-secondary,.85);
+        top:110%;
+        right:10%;
+        color:black;
+        overflow-y:auto;
+        font-size:1.7rem;
+        &::-webkit-scrollbar {
+            width: 1.7rem;
+          }
+           
+          &::-webkit-scrollbar-track {
+              background-color:transparent;
+            
+          }
+           
+          &::-webkit-scrollbar-thumb {
+           
+           border-radius:3px;
+           background-color:$color-tertiary;
+          }
+       
+    }
+    .Notifications-shown
+        {
+            display:block;
+            animation-name:zoomin;
+            animation-iteration-count:1;
+            animation-duration:.2s;
+            backface-visibility: hidden;
+        }
+    .Notifications-hidden
+        {
+            display:none;
+            animation-name:zoomout;
+            animation-iteration-count:1;
+            animation-duration:.5s;
+            backface-visibility: hidden;
+            
+        }
+        @keyframes zoomin
+        {
+            0%
+            {
+                transform:scale(0)  ;
+                opacity:0;
+                
+            }
+            100%
+            {
+                transform:scale(1) ;
+                opacity:1;
+
+            }
+        }
+        @keyframes zoomout
+        {
+            0%
+            {
+                transform:scale(1);
+            }
+            100%
+            {
+                transform:scale(0);
+               
+            }
+         }
+   
+
+}
+}
+
+/*@media(max-width:699px)
+{
+    .InfoBar
+    {
+        border-radius:5px 5px 0 0;
+    }
+}*/

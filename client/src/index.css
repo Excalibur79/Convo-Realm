@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after
+{
+  margin:0;
+  padding:0;
+  box-sizing:inherit;
+
+}
+html{
+  font-size:10px;
+}
+body {
+  margin: 0;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Roboto', sans-serif;
+  color:#777;
+  
+}
+
+
+@media(max-width:376px)
+{
+  html 
+  {
+    font-size:9px;
+  }
+}
+
+@media(max-width:321px)
+{
+  html 
+  {
+    font-size:8px;
+  }
+}
+

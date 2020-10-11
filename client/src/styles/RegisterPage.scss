@@ -1,0 +1,274 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+.RegisterPage
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+   // border:2px solid red;
+    width:40rem;
+    //height: 40rem;
+    background-image:linear-gradient(128deg,rgba($color-secondary,.5)0%,rgba($color-secondary,.5)50%,rgba($color-tertiary,.5)50%,rgba($color-tertiary,.5)100%);
+    border-radius:5px;
+    
+    z-index:0;
+    .Heading
+    {
+        //border:2px solid red;
+        text-align:center;
+        font-size:5rem;
+        margin:1.2rem;
+       
+           span 
+           {
+            -webkit-text-stroke: .2px $color-tertiary;
+            -webkit-text-fill-color: transparent;
+           } 
+           .Convo
+           {
+            -webkit-text-fill-color: $color-tertiary;
+           }
+          
+           
+        
+    }
+    form 
+    {
+        margin-top:1.2rem;
+        div
+        {
+           
+            label
+            {
+               
+                transition:all .3s ease;
+            }
+            input 
+            {
+               
+                background-color:transparent;
+                border:0px solid $color-primary;
+                border-bottom:3.5px solid $color-tertiary;
+                outline:none;
+               
+            }
+        }
+        .Name-div
+        {
+            //border:2px solid black;
+            text-align:center;
+            position:relative;
+            margin:1rem;
+            label
+            {
+                position:absolute;
+                top:2rem;
+                left:4rem;
+                display:block;
+                color:red;
+            }
+            input 
+            {
+                height:5rem;
+                width:30rem;
+                padding-top:2.5rem;
+                font-size:1.7rem;
+                position:relative;
+              
+
+            }
+            input:focus + label
+            {
+                transform:translateY(-2.5rem) scale(1.2);
+                color:$color-tertiary;
+                font-weight:bold;
+            }
+            input:not(:placeholder-shown) + label
+            {
+                transform:translateY(-2.5rem) scale(1.2);
+                color:$color-tertiary;
+                font-weight:bold;
+            }
+        }
+
+        .Avatar-div
+        {
+            //border:2px solid red;
+            position:relative;
+            .Avatar-config
+            {
+                display:flex;
+                //border:2px solid blue;
+                justify-content: center;
+               
+                .Select-Avatar
+                {
+                    font-size:2rem;
+                    padding-top:.7rem;
+                }
+                .Dropdown
+                {
+                    padding-top:.9rem;
+                    cursor:pointer
+                }
+                div 
+                {
+                   // border:2px solid black;
+                    margin:1rem;
+                }
+                div img 
+                {
+                    width:3rem;
+                    height:3rem;
+                  //border:2px solid red;
+
+                }
+                .rotate180
+                {
+                   animation-name:rotate180;
+                   animation-iteration-count:1;
+                   animation-duration:.5s;
+                   animation-fill-mode:forwards;
+       
+                }
+                .rotate0
+                {
+                   animation-name:rotate0;
+                   animation-iteration-count:1;
+                   animation-duration:.5s;
+                   animation-fill-mode:forwards;
+                }
+                @keyframes rotate180
+                {
+                    0%
+                    {
+                        transform:rotate(0);
+                    }
+                    100%
+                    {
+                        transform:rotate(180deg);
+                       
+                    }
+                 }
+                 @keyframes rotate0
+                {
+                    0%
+                    {
+                        transform:rotate(-180deg);
+                    }
+                    100%
+                    {
+                        transform:rotate(0);
+                       
+                    }
+                 }
+            }
+        }
+        .Password-div
+        {
+            //border:2px solid black;
+            text-align:center;
+            position:relative;
+            margin:1rem;
+            label
+            {
+                position:absolute;
+                top:2rem;
+                left:4rem;
+                display:block;
+                color:red;
+               
+            }
+            input 
+            {
+                height:5rem;
+                width:30rem;
+                padding-top:2.5rem;
+                font-size:1.7rem;
+            }
+            input:focus + label
+            {
+                transform:translateY(-2.5rem) scale(1.2);
+                color:$color-tertiary;
+                font-weight:bold;
+                
+            }
+            input:not(:placeholder-shown) + label
+            {
+                transform:translateY(-2.5rem) scale(1.2);
+                color:$color-tertiary;
+                font-weight:bold;
+            }
+        }
+        .Submit
+        {
+           // border:2px solid red;
+            text-align:center;
+            margin-top:4rem;
+            padding:1rem;
+            margin-bottom:2rem;
+            button 
+            {
+                width:10rem;
+                height: 4rem;
+                padding:0.2rem;
+                border-radius:5px;
+                outline:none;
+                background-color:$color-tertiary;
+                border:2px solid $color-tertiary;
+                transition:all 0.3s ease;
+                cursor:pointer;
+                img 
+                {
+                  width:3rem;
+                  height:3rem;
+                  //border:2px solid green;
+                }
+                &:hover 
+                {
+                    transform:translateY(0.3rem) scale(1.08);
+                    filter:brightness(1.2);
+                }
+                &:active
+                {
+                    transform:translateY(0.3rem) scale(1);
+                    filter:brightness(0.9);
+                }
+
+            }
+        }
+        
+    }
+  
+}
+.To-Login
+{
+     //border:2px solid red;
+     text-align:center;
+     position:absolute;
+     top:90%;
+     left:50%;
+     transform:translate(-50%,-50%);
+     font-size:1.7rem;
+     display:block;
+     Link 
+     {
+         text-decoration:none;
+     }
+    
+}
+.u-z-index-1
+{
+    z-index:-1;
+}
+@media(max-width:413px)
+{
+    .RegisterPage
+    {
+        width:100%;
+       
+    }
+}

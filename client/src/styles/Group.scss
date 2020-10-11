@@ -1,0 +1,78 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+.Group-div
+{
+   
+   //border:2px solid green;
+   font-family: 'Poppins', sans-serif;
+   cursor:pointer;
+    margin:1rem;
+    display:flex;
+    padding:1rem;
+    transition:all 0.3s ease;
+    border-radius:3px;
+    .Image-Container
+    {
+        flex:1;
+       // border:2px solid red;
+        vertical-align:center;
+        .Image
+        {
+            width:5rem;
+            height:5rem;
+          // border:2px dotted blue;
+            background-color:black;
+            border-radius:50%;
+            margin:0 auto;
+            text-align:center;
+            padding-top:0.9rem;
+            font-size:2rem;
+            color:gold;
+            
+           
+        }
+    }
+    .Group-name
+    {
+        border-bottom:2px solid $color-primary;
+        flex:3;
+       font-weight:bold;
+       font-family: 'Lato', sans-serif;
+        color:white;
+        padding-top:1rem;
+        font-size:1.8rem;
+        font-family: 'Poppins', sans-serif;
+    }
+    &:hover
+    {
+        background-color:$color-primary;
+        .Group-name
+        {
+            color:black;
+            border-bottom:2px solid black;
+        }
+    }
+
+}
+.Current-group 
+{
+    background-color:$color-tertiary;
+    transition:all 0.3s ease;
+        .Group-name
+        {
+            color:gold;
+            border-bottom:2px solid gold;
+        }
+        &:hover
+        {
+            filter:brightness(1.1);
+        }
+}
+.Chat-Window
+{
+    float:left;
+    border:2px solid black;
+    
+}   

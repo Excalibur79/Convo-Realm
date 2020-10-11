@@ -1,0 +1,26 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+.MessageList
+{
+    //border:2px solid green;
+   display:flex;
+   flex-direction:column;
+    overflow-y: auto;
+    height:100%;
+    &::-webkit-scrollbar {
+        width: 1.7rem;
+      }
+       
+      &::-webkit-scrollbar-track {
+          background-color:transparent;
+        
+      }
+       
+      &::-webkit-scrollbar-thumb {
+       
+       border-radius:3px;
+       background-color:$color-tertiary;
+      }
+} 

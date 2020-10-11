@@ -1,0 +1,26 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.App{
+ 
+  width:100vw;
+  height:100vh;
+  position:relative;
+  background-color:#FFE4C4;
+  overflow-y:auto;
+ 
+}
+.App::-webkit-scrollbar {
+  width: 1.7rem;
+}
+ 
+.App::-webkit-scrollbar-track {
+    background-color:#FFE4C4;
+  
+}
+ 
+.App::-webkit-scrollbar-thumb {
+ 
+ border-radius:3px;
+ background-color:#DEB887;
+}

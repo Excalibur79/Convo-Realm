@@ -1,0 +1,89 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+$color-tertiary:#987456;
+
+
+
+.AvatarList
+{
+    border:2px solid $color-tertiary;
+    padding:.5rem;
+    height:40vh;
+    
+    overflow-y:scroll;
+    position:absolute;
+    top:5.5rem;
+    left:2.9rem;
+    display:none;
+    opacity:0.9;
+    z-index:1;
+    background-color:$color-tertiary;
+    border-radius:6px;
+    .row
+    {
+        //border:2px solid blue;
+        display:flex;
+        justify-content:space-between;
+    }
+
+    &::-webkit-scrollbar {
+        width: 1.7rem;
+      }
+       
+      &::-webkit-scrollbar-track {
+          background-color:$color-tertiary;
+        
+      }
+       
+      &::-webkit-scrollbar-thumb {
+       
+       border-radius:3px;
+       background-color:$color-secondary;
+      }
+
+
+      &-shown
+        {
+            display:block;
+            animation-name:zoomin;
+            animation-iteration-count:1;
+            animation-duration:.3s;
+            backface-visibility: hidden;
+        }
+        &-hidden
+        {
+            display:none;
+            animation-name:zoomout;
+            animation-iteration-count:1;
+            animation-duration:.5s;
+            backface-visibility: hidden;
+            
+        }
+        @keyframes zoomin
+        {
+            0%
+            {
+                transform:scale(0)  ;
+                opacity:0;
+                
+            }
+            100%
+            {
+                transform:scale(1) ;
+                opacity:1;
+
+            }
+        }
+        @keyframes zoomout
+        {
+            0%
+            {
+                transform:scale(1);
+            }
+            100%
+            {
+                transform:scale(0);
+               
+            }
+         }
+}

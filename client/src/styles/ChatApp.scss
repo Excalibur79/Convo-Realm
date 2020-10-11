@@ -1,0 +1,88 @@
+$color-primary:#FFE4C4;
+$color-secondary:#DEB887;
+
+.ChatApp
+{
+    //border:5px dotted green;
+    width:90%;
+    height:95%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    overflow:hidden;
+    border-radius:5px;
+    .Left
+    {
+        flex:1;
+        background-color:$color-secondary;
+        //border:2px solid blue;
+        display:flex;
+        flex-direction:column;
+    }
+    .Right
+    {
+       // width:100%;
+       flex:2;
+    }
+}
+
+
+
+
+//--------Experiments---------------------
+@media(max-width:699px)
+{
+    .ChatApp
+    {
+        border-radius:0px;
+       display:initial;
+        width:100vw;
+        height:100vh;
+        overflow:auto;
+      // border:2px solid red;
+        
+        scroll-snap-type: y mandatory;
+        &::-webkit-scrollbar {
+            width: 0rem;
+          }
+           
+          &::-webkit-scrollbar-track {
+              background-color:$color-secondary;
+            
+          }
+           
+          &::-webkit-scrollbar-thumb {
+           
+           border-radius:0px;
+           background-color:$color-primary;
+          }
+       
+        
+        .Section
+         {
+            width:100%;
+           height:100%;
+           scroll-snap-align: start;
+           
+          }
+          .Left
+          {
+             
+             overflow: hidden;
+          }
+          .Right
+          {
+              padding:0rem;
+              border-radius:0px;
+             
+              
+            
+          }
+         
+       
+    }
+
+}
+//-------------------------------

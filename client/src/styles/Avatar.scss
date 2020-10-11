@@ -1,0 +1,19 @@
+.Avatar
+{
+    //border:1px dotted orange;
+    margin:.5rem;
+    padding-top:.7rem;
+    text-align:center;
+    cursor:pointer;
+    transition:all .3s ease;
+    
+    img 
+    {
+        width:5rem;
+        height:5rem;
+    }
+    &:hover
+    {
+        filter:brightness(1.2);
+    }
+}
