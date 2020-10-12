@@ -1,4 +1,4 @@
-import React,{useContext,useEffect,useState} from "react";
+import React,{useContext,useEffect,useState,useRef} from "react";
 import {ChatContext} from "../Contexts/ChatContext";
 import {UserContext} from "../Contexts/UserContext";
 import InfoBar from "./InfoBar";
@@ -26,15 +26,10 @@ function ChatWindow(props)
     const [windownotifications,setwindownotifications]=useState(notifications);
     const [windownotification,setwindownotification]=useState(notification);
     const [windowmessages,setwindowmessages]=useState(messages);
-    const [windowmessage,setwindowmessage]=useState("");
     const [sentmessage,setsentmessage]=useState({});
     const [windowgroupsdata,setwindowgroupsdata]=useState(Usergroups);
-    var [helper,sethelper]=useState(1);
 
-  /*  useEffect(()=>
-    {
-        setwindowmessages(messages);
-    },[messages])*/
+    var isRendered=useRef(false);
 
     useEffect(()=>
     {
@@ -49,8 +44,7 @@ function ChatWindow(props)
         {
             socket.emit("join",data,(returneddata)=>
             {
-                //console.log("returned data is :");
-                //console.log(returneddata);
+               
             });
     
            
@@ -73,8 +67,7 @@ function ChatWindow(props)
             
            
             setwindownotification(data.notification);
-            //var x=[data.notification.room,data.notification.text];
-            //setwindownotifications([...windownotifications,x])
+          
 
             
             Changenotification(windownotification);
@@ -87,20 +80,19 @@ function ChatWindow(props)
     useEffect(()=>
     {
         var x=[windownotification.room,windownotification.text];
-        //console.log("Window Notification is ",windownotification);
         setwindownotifications([...windownotifications,x]);
 
  
     },[windownotification])
 
    
+    useEffect(()=>
+    {
         socket.on("message",(data)=>
         {
             try
             {
-               // setwindowmessage(data.message);
                setsentmessage(data.message);
-               setwindowmessage(data.message);
 
 
             }
@@ -112,15 +104,16 @@ function ChatWindow(props)
             
         })
       
+    })
+       
    
 
     useEffect(()=>
     {
-            
+            isRendered.current=true;
              if(sentmessage.name && sentmessage.room && sentmessage.avatar && sentmessage.text && Object.keys(sentmessage).length!==0)
              {
-                // console.log("lulululu");
-                var groupsdata=windowgroupsdata;
+                var groupsdata=[...windowgroupsdata];
                 for(var i=0;i<groupsdata.length;i++)
                 {
                     if(groupsdata[i].socketroomid===sentmessage.room)
@@ -129,9 +122,14 @@ function ChatWindow(props)
                         break;
                     }
                 }
+                if(isRendered.current)
                 setwindowgroupsdata(groupsdata);
                 
                 
+             }
+             return()=>
+             {
+                 isRendered.current=false;
              }
             
 
@@ -139,14 +137,15 @@ function ChatWindow(props)
 
     const handleSend=()=>
     {
-        if(typeof windowmessage!=="object" && windowmessage!=="")
+        var val=document.getElementById("input-message");
+
+        if(typeof val.value!=="object" && val.value!=="")
         {
-            var data={name:Username,room:roomid,avatar:Useravatar,text:windowmessage}
+            var data={name:Username,room:roomid,avatar:Useravatar,text:val.value}
             socket.emit("sendmessage",data,()=>
             {
 
-                setwindowmessage("");
-                var val=document.getElementById("input-message");
+               
                
                 val.value="";
               
@@ -163,19 +162,20 @@ function ChatWindow(props)
 
 
 
-    var filterednotifications=windownotifications.filter((x)=>roomid===x[0])
 
     useEffect(()=>
     {
-        
-        var filteredgroup=windowgroupsdata.find((group)=>group.socketroomid===roomid);
-       // console.log("hurrururur");
-        if(filteredgroup )
+        if(isRendered.current)
         {
-            setwindowmessages(filteredgroup.chats);
-           
+            var filteredgroup=windowgroupsdata.find((group)=>group.socketroomid===roomid);
+                if(filteredgroup )
+                {
+                    setwindowmessages(filteredgroup.chats);
+                
 
+                }
         }
+        
     },[windowgroupsdata,roomid]);
 
    
@@ -194,7 +194,7 @@ function ChatWindow(props)
                       <MessageList messages={windowmessages}/>
               
                 {groupname&&groupname!=""?( <div className="Message-Send">
-                    <input name="message"  id="input-message" onChange={(e)=>setwindowmessage(e.target.value)} placeholder="Type a message"/>
+                    <input name="message"  id="input-message" placeholder="Type a message"/>
                     <button onClick={handleSend}><img src={Send}/></button>
                 </div>):(<></>)}
                
